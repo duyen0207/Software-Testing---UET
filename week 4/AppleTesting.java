@@ -51,4 +51,9 @@ public class AppleTesting {
         Assertions.assertEquals(6, Main.number_of_apples(1, 5));
     }
 
+    @Test
+    void test8() {
+        Assertions.assertEquals(-1, Main.number_of_apples(2, 5));
+    }
+
 }

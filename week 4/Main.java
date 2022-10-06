@@ -10,6 +10,7 @@ public class Main {
      * @return tổng số táo khách hàng nhận được
      */
     public static int number_of_apples(int customer, int apples) {
+        if (customer != 0 && customer != 1) return -1;
         int promote = 0;
         // khi số lượng táo không hợp lệ
         if (apples > 10 || apples < 0) return -1;
