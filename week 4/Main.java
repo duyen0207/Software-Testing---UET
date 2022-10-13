@@ -10,25 +10,21 @@ public class Main {
      * @return tổng số táo khách hàng nhận được
      */
     public static int number_of_apples(int customer, int apples) {
-        if (customer != 0 && customer != 1) return -1;
         int promote = 0;
-        // khi số lượng táo không hợp lệ
-        if (apples > 10 || apples < 0) return -1;
-            // khi khách hàng là khách đã từng mua
+        // đầu vào không hợp lệ
+        if ((customer != 0 && customer != 1) || apples > 10 || apples <= 0)
+            return -1;
+        // khi khách hàng là khách đã từng mua
         else if (customer == 1) {
-            if (apples >= 5) {
-                if (apples == 10) promote = 2;
-                else promote = 1;
-            }
+            promote = apples / 5;
         }
         // khi khách hàng là khách hàng mới
         else if (customer == 0) {
-            if (apples < 5 || (apples % 2 == 0 && apples % 5!=0)) promote = apples / 2;
-            else if (apples >= 5) {
+            if (apples < 5 || (apples % 2 == 0 && apples % 5 != 0))
+                promote = apples / 2;
+            else {
                 if (apples % 5 == 0) promote = apples / 5 * 3;
-                else {
-                    promote = apples / 5 * 3 + (apples % 5) / 2;
-                }
+                promote = apples / 5 * 3 + (apples % 5) / 2;
             }
         }
         return promote + apples;
